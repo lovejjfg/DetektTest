@@ -1,0 +1,186 @@
+comments:
+  CommentOverPrivateProperty:
+    active: false
+  UndocumentedPublicClass:
+    active: true
+    excludes: ['**/*.kt']
+    includes: ['**/detekt-api/src/main/**/api/*.kt']
+  UndocumentedPublicFunction:
+    active: true
+    excludes: ['**/*.kt']
+    includes: ['**/detekt-api/src/main/**/api/*.kt']
+
+complexity:
+  StringLiteralDuplication:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt']
+    threshold: 5
+    ignoreAnnotation: true
+    excludeStringsWithLessThan5Characters: true
+    ignoreStringsRegex: '$^'
+  ComplexInterface:
+    active: false
+    threshold: 10
+    includeStaticDeclarations: false
+    includePrivateDeclarations: false
+  ComplexMethod:
+    active: false
+    ignoreSingleWhenExpression: true
+  MethodOverloading:
+    active: true
+  ComplexCondition:
+    active: false
+  TooManyFunctions:
+    active: false
+  LongParameterList:
+    active: false
+  NestedBlockDepth:
+    threshold: 4
+  LongMethod:
+    active: false
+
+
+exceptions:
+  NotImplementedDeclaration:
+    active: true
+  InstanceOfCheckForException:
+    active: true
+  RethrowCaughtException:
+    active: true
+  ReturnFromFinally:
+    active: true
+  SwallowedException:
+    active: false
+  ThrowingExceptionFromFinally:
+    active: true
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: true
+  ThrowingNewInstanceOfSameException:
+    active: true
+  TooGenericExceptionCaught:
+    active: false
+
+formatting:
+  active: true
+  android: false
+  autoCorrect: true
+  MaximumLineLength:
+    active: false
+  NoWildcardImports:
+    active: false
+
+
+naming:
+  MatchingDeclarationName:
+    active: false
+  MemberNameEqualsClassName:
+    active: false
+  VariableNaming:
+    active: false
+    variablePattern: '[a-z][A-Za-z0-9]*'
+    privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
+
+performance:
+  ArrayPrimitive:
+    active: true
+  SpreadOperator:
+    active: false
+
+potential-bugs:
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: true
+  InvalidRange:
+    active: true
+  IteratorHasNextCallsNextMethod:
+    active: true
+  IteratorNotThrowingNoSuchElementException:
+    active: true
+  MissingWhenCase:
+    active: true
+  RedundantElseInWhen:
+    active: true
+  UnsafeCallOnNullableType:
+    active: true
+  UnsafeCast:
+    active: true
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt']
+  UselessPostfixExpression:
+    active: true
+  WrongEqualsTypeParameter:
+    active: true
+  UnnecessarySafeCall:
+    active: true
+  UnnecessaryNotNullOperator:
+    active: true
+
+style:
+  CollapsibleIfStatements:
+    active: false
+  ThrowsCount:
+    active: false
+  EqualsNullCall:
+    active: true
+  ForbiddenComment:
+    active: true
+    values: ['TODO:', 'FIXME:', 'STOPSHIP:', '@author']
+  FunctionOnlyReturningConstant:
+    active: true
+  LibraryCodeMustSpecifyReturnType:
+    active: true
+    excludes: ['**/*.kt']
+    includes: ['**/detekt-api/src/main/**/api/*.kt']
+  MaxLineLength:
+    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt']
+    excludeCommentStatements: true
+    active: false
+  MagicNumber:
+    ignoreHashCodeFunction: true
+    ignorePropertyDeclaration: true
+    ignoreAnnotation: true
+    ignoreEnums: true
+    ignoreNumbers: ['-1', '0', '1', '2', '100', '1000']
+    active: false
+  MayBeConst:
+    active: true
+  NestedClassesVisibility:
+    active: true
+  ProtectedMemberInFinalClass:
+    active: true
+  SpacingBetweenPackageAndImports:
+    active: true
+  UnnecessaryAbstractClass:
+    active: true
+  UnnecessaryInheritance:
+    active: true
+  UnusedPrivateClass:
+    active: true
+  UnusedPrivateMember:
+    active: false
+    allowedNames: '(_|ignored|expected)'
+  UseCheckOrError:
+    active: false
+  UselessCallOnNotNull:
+    active: true
+  UtilityClassWithPublicConstructor:
+    active: false
+  WildcardImport:
+    active: false
+  ReturnCount:
+    active: false
+  LoopWithTooManyJumpStatements:
+    active: false
+  VarCouldBeVal:
+    active: true
+
+empty-blocks:
+  EmptyFunctionBlock:
+    active: false
+
+#build:
+#  maxIssues: 2 # break the build if ten weighted issues are found
+#  weights:
+#    active: false
+#    complexity: 2 # every rule of the complexity rule set should count as if two issues were found...
+#    LongParameterList: 1 # ...with the exception of the LongParameterList rule.
+#    comments: 0 # comment rules are just a nice to know?!
