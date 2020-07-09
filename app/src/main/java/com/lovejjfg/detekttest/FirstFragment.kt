@@ -14,8 +14,7 @@ import androidx.navigation.fragment.findNavController
 class FirstFragment : Fragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         foo("xxx")
@@ -39,6 +38,10 @@ class FirstFragment : Fragment() {
     }
 
 
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         view!!.findViewById<Button>(R.id.button_first).setOnClickListener {
@@ -46,7 +49,9 @@ class FirstFragment : Fragment() {
         }
     }
 
-    fun equals1(other: Any?): Boolean {
-        return true
-    }
+
+
+
+
+
 }

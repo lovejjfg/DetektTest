@@ -1,12 +1,9 @@
 build:
-  maxIssues: 0
-  excludeCorrectable: false
+  maxIssues: 10 # break the build if ten weighted issues are found
   weights:
-    complexity: 2
-    LongParameterList: 1
-    style: 1
-    comments: 1
-#   potential-bugs: 2
+    complexity: 2 # every rule of the complexity rule set should count as if two issues were found...
+    LongParameterList: 1 # ...with the exception of the LongParameterList rule.
+    comments: 0 # comment rules are just a nice to know?!
 
 config:
   validation: true
@@ -258,7 +255,7 @@ formatting:
     active: true
     autoCorrect: true
   NoConsecutiveBlankLines:
-    active: false
+    active: true
     autoCorrect: true
   NoEmptyClassBody:
     active: true
@@ -431,6 +428,12 @@ performance:
 
 potential-bugs:
   active: true
+  UnnecessaryNotNullOperator:
+    active: true
+  UnnecessarySafeCall:
+    active: true
+  UnsafeCallOnNullableType:
+    active: true
   Deprecation:
     active: false
   DuplicateCaseInWhenExpression:
@@ -459,32 +462,24 @@ potential-bugs:
   IteratorNotThrowingNoSuchElementException:
     active: true
   LateinitUsage:
-    active: true
+    active: false
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
     excludeAnnotatedProperties: []
     ignoreOnClassesPattern: ''
   MapGetWithNotNullAssertionOperator:
-    active: true
+    active: false
   MissingWhenCase:
     active: true
   RedundantElseInWhen:
     active: true
   UnconditionalJumpStatementInLoop:
-    active: true
-  UnnecessaryNotNullOperator:
-    active: true
-  UnnecessarySafeCall:
-    active: true
-  UnsafeCallOnNullableType:
-    active: true
+    active: false
   UnreachableCode:
     active: true
-
   UnsafeCast:
-    active: true
-    excludes: ['**/test/**', '**/*.Test.kt', '**/*.Spec.kt']
+    active: false
   UselessPostfixExpression:
-    active: true
+    active: false
   WrongEqualsTypeParameter:
     active: true
 
@@ -527,7 +522,7 @@ style:
     ignoreOverridden: false
     ignoreUsageInGenerics: false
   FunctionOnlyReturningConstant:
-    active: false
+    active: true
     ignoreOverridableFunction: true
     excludedFunctions: 'describeContents'
     excludeAnnotatedFunction: ['dagger.Provides']
