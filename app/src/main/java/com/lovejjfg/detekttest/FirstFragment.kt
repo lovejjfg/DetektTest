@@ -18,17 +18,35 @@ class FirstFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val a = 1
-        val b = a!!
-        // Inflate the layout for this fragment
+        foo("xxx")
         return inflater?.inflate(R.layout.fragment_first, container, false)
     }
 
+    fun foo(s: String) {
+        val a = 1
+        // UnnecessaryNotNullOperator
+        val b = a!!
+        // UnsafeCallOnNullableType
+        val and = b!!.and(2!!)
+        if (and!! > 0) {
+            println("jahahaa")
+        }
+        val a1: String = ""
+        // UnnecessarySafeCall
+        val b1 = a1?.length
+        println(b1)
+        // UnnecessarySafeCall
+    }
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         view!!.findViewById<Button>(R.id.button_first).setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+    }
+
+    fun equals1(other: Any?): Boolean {
+        return true
     }
 }
